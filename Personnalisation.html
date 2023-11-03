@@ -31,8 +31,8 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <link href="css/menu.css" rel="stylesheet">
+    <link rel="stylesheet" href="allcard">
     <style>
-
         #mySection {
   scroll-margin-top: 100px; /* Adjust this value to control the margin at the top of the section when scrolling to it */
 }
@@ -49,7 +49,7 @@ html {
 }
 .itm1{
     width: 65%;
-    height: max-content;
+    height: 500px;
     border: solid 1px gray;
     border-radius: 15px;
 
@@ -61,32 +61,30 @@ html {
 }
 .co1{
     width: 100%;
+    border: solid 1px gray;
     border-radius: 15px;
-    height: 105px;
+    height: 255px;
 }
 .co2{
     width: 100%;
     height: max-content;
 }
+.per{
+    display: flex;
 
-
-
-
-    
-
-
+}
 
 
 
     </style>
 </head>
 
-<body>
-    <div class="container-xxl bg-white p-0 ">
+<body> 
+    <div class=" container-xxl bg-white p-0">
         <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div  id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span  class="sr-only">Loading...</span>
+                <span class="sr-only">Loading...</span>
             </div>
         </div>
         <!-- Spinner End -->
@@ -106,28 +104,16 @@ html {
                     <div class="navbar-nav ms-auto py-0 pe-4  ">
                         <a href="index.html" class="nav-item nav-link  ">Home</a>
                         <a href="menu.html" class="nav-item nav-link">Menu</a>
-                        <a href="Personnalisation.html" class="nav-item nav-link  active">Personnalisation</a>
-                        <a href="menu.html" class="nav-item nav-link">About us</a>
+                        <a href="Personnalisation.html" class="nav-item nav-link active">Personnalisation</a>
+                        <a href="about.html" class="nav-item nav-link ">About us</a>
                      
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
 
                        
-                            <div class="shopping ">
-                                <img src="img/icons8-panier-50.png">
-                                <span class="quantity">0</span>
-                            </div>
-                       
+                         
                 
                     </div>
-                    <div class="panier">
-                        <h1>Card</h1>
-                        <ul class="listCard">
-                        </ul>
-                        <div class="checkOut">
-                            <div class="total">0</div>
-                            <div class="closeShopping">Close</div>
-                        </div>
-                    </div>
+                
 
                            
                    
@@ -139,7 +125,6 @@ html {
                 <div class="container text-center align-content-center my-5 pt-5 pb-4">
                     <h1 class="display-1 text-white mb-3 animated slideInDown">View Our New Menu</h1>
                     <p class=" fs-5 text-white mb-3 animated slideInDown">The freshest ingredients for you every day</p>
-                   
                  
                 </div>
             </div>
@@ -156,29 +141,45 @@ html {
 
                 <!-- 00000000000000000000 -->
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h5 id="ii" class="section-title ff-secondary text-center text-primary fw-normal">Food Menu</h5>
+                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Food Menu</h5>
                     <h1 id="mySection" class="mb-5">Most Popular Items</h1>
                 </div>
-                <div class="tab-class text-center wow fadeInUp ms-4" data-wow-delay="0.1s">
+                <div class="tab-class text-center align-items-center wow fadeInUp ms-4" data-wow-delay="0.1s">
                     
                  
- 
-        
-                 
-                    <div  class="value d-flex justify-content-around " style="z-index: 55;" >  
-                       
-  
-  
+
+                    <div class="contin">
+                        <div class="card">
+                            <div class="row">
+                                <div class="col-md-12 cart">
+                                    <div class="title">
+                                        <div class="row">
+                                            <div class="col"><h4><b>Shopping Cart</b></h4></div>
+                                            <div class="col align-self-center text-right text-muted">3 items</div>
+                                        </div>
+                                    </div>    
+                                    <div class="listCard row border-top border-bottom">
+                                    
+                                    </div>
+                            
+                                
+                                </div>
+                              
+                            </div>
+                            <div style="width: 50%; margin-left: auto; border: solid 1px rgb(201, 201, 206);" class="addOption   align-items-end justify-content-end summary ">
+                                    
+                            </div>
+                            
+                        </div>
+                    
                     </div>
 
-                    <div  class="container text-center listPers">
-                     
+    
+                  
+               
                        
-                      </div>
-
+                  
                       
-                 
-            
                     
 
                   
@@ -269,12 +270,25 @@ html {
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Template Javascript -->
-   
     <script src="js/main.js"></script>
+    <script src="js/Personnalisation.js"></script>
    
-    <script src="js/personn.js"></script>
+    <!-- <script src="js/devis.js"></script> -->
+
     
   
     

@@ -1,4 +1,3 @@
-const add_it = 0;
 const menuData = [
     { id:0 , myArrayProperty: [] , quantity:0,  img: 'https://lh3.googleusercontent.com/dX6KdmbQtw3u1xObEEe0utLeVxqJxiM-EYnF8tLtT0rT07DF7gYa77ne7TQzbCsR0WiKZ2nCV37GXaKfiG-x2cne9lfth4h2I24=w3247-h3247-c-rw-v1-e365', name: 'Spring Rolls', category: 'Appetizers', price: 21.87},
   
@@ -90,121 +89,102 @@ const menuData = [
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// 000000000000000000000000000000000000000000000000000
-
-
-
-
-
-
-
-
-
-
-let openShopping = document.querySelector('.shopping');
-let closeShopping = document.querySelector('.closeShopping');
-let list = document.querySelector('.list');
-let listCard = document.querySelector('.listCard');
-
-let body = document.querySelector('body');
-let total = document.querySelector('.total');
-let quantity = document.querySelector('.quantity');
-
-
-
-function updateLocalStorage() {
-    localStorage.setItem('shoppingCart', JSON.stringify(listCards));
-}
-
 window.addEventListener('load', () => {
     // Retrieve shopping cart data from local storage
     const savedShoppingCart = localStorage.getItem('shoppingCart');
     
     if (savedShoppingCart) {
         listCards = JSON.parse(savedShoppingCart);
+        console.log(listCards);
         reloadCard();
+       
     }
+   
 });
 
 
 
 let listCards  = [];
+let invoice = document.querySelector("#invoice") ; 
+let date = document.querySelector(".date") ; 
+let tot = document.querySelector(".tot") ; 
+let body = document.querySelector(".body") ; 
+let total = document.querySelector(".total") ; 
+let addOption = document.querySelector(".addOption") ; 
 
-function addToCard(id){
-    if(listCards[id] == null){
-        // copy product form list to list card
-        listCards[id] = JSON.parse(JSON.stringify(menuData[id]));
-        listCards[id].quantity = 1;
 
-        reloadCard();
-        updateLocalStorage();
-    }
-   
-}
+const datee = new Date(); // Create a new Date object (current date and time)
+
+const options = {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+};
+
+const localDateString = datee.toLocaleDateString('fr-FR', options); // 'fr-FR' is the locale for French
+
+
+
+
+
+
 function reloadCard() {
-    listCard.innerHTML = '';
-    let count = 0;
-    let totalPrice = 0;
 
-    listCards.forEach((value) => {
-        if (value !== null) {
-            totalPrice = totalPrice + value.price;
-            count = count + value.quantity;
+        let count = 0;
+        let totalPrice = 0;
+    
+        listCards.forEach((value) => {
+            console.log(listCards);
+            if (value !== null) {
+                totalPrice = totalPrice + value.price;
+                count = count + value.quantity;
+                const menuItem = document.createElement('tr');
+               
+                date.innerHTML = `
 
-            let newDiv = document.createElement('li');
-            newDiv.className = 'mt-4';
 
-            newDiv.innerHTML = `
-                <div><img src="${value.img}"/></div>
-                <div>${value.name}</div>
-                <div>
-                <button onclick="changeQuantity(${value.id}, ${value.quantity - 1})">-</button>
-                <div class="count">${value.quantity}</div>
-                <button onclick="changeQuantity(${value.id}, ${value.quantity + 1})">+</button>
-            </div>
-                <div>$${value.price.toFixed(2)}</div>
+                Date:${localDateString}
                 
-             `;
+                
+                `
 
-            listCard.appendChild(newDiv);
-        }
-    });
-    // total.innerText = totalPrice.toLocaleString();
-    total.innerHTML = ` <div> <a class="text-dark d-flex justify-content-end" href="Personnalisation.html">Order(<span class="text-light">$${totalPrice.toFixed(2)}</span>)</a></div>`;
+                menuItem.innerHTML = `
+     
+               
+                <td>${value.name}</td>
+                <td>${value.quantity}</td>
+                <td>$${value.price.toFixed(2)}</td>
+                
+                    `;
 
-    quantity.innerText = count;
+                tot.innerHTML = `
+     
+    
+                <p class="total ">Montant Total HT: $${totalPrice.toFixed(2)}</p>
+
+                <!-- Montant de la TVA -->
+                <p>TVA (20%): $${(totalPrice * 20 / 100).toFixed(2)}</p>
+        
+                <!-- Total TTC -->
+                <p class="total">Montant Total TTC: $${(totalPrice * 1.20).toFixed(2)}</p>
+                
+                    `;
+
+                    body.appendChild(menuItem);
+
+    
+            }
+        });
+        //  total.innerText = totalPrice;
+        //  total.innerHTML = ` <div> <a class="text-dark" href="devis.html">Order(<span class="text-danger">$${totalPrice.toFixed(2)}</span>)</a></div>`;
+    
+     
+
 }
 
 
+         
+            
+            
 
-
-function changeQuantity(id, quantit) {
-    if (quantit === 0) {
-        delete listCards[id];
-    } else if (quantit > 0) {
-        listCards[id].quantity = quantit;
-        listCards[id].price = quantit * menuData[id].price; 
-    }
-    reloadCard();
-    updateLocalStorage();
-}
-
-
-// localStorage.setItem('myArray', JSON.stringify(menuData));
-// window.location.href = 'Personnalisation.html';
+         

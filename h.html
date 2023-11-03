@@ -39,7 +39,7 @@
         <h1 class="display-4 text-center">Devis</h1>
         <div class="mb-4 text-center">
             <p class="lead">Lieu: Votre Adresse</p>
-            <p class="lead">Date: 31 octobre 2023</p>
+            <p class="lead date"></p>
         </div>
 
         <!-- Informations sur l'entreprise -->
@@ -58,24 +58,13 @@
                     <tr>
                         <th>Produit</th>
                         <th>Quantité</th>
-                        <th>Prix HT</th>
                         <th>Total HT</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="body">
                     <!-- Replace the table rows with your products -->
-                    <tr>
-                        <td>Produit 1</td>
-                        <td>2</td>
-                        <td>50.00 €</td>
-                        <td>100.00 €</td>
-                    </tr>
-                    <tr>
-                        <td>Produit 2</td>
-                        <td>3</td>
-                        <td>30.00 €</td>
-                        <td>90.00 €</td>
-                    </tr>
+               
+                
                     <!-- Add more rows for additional products if needed -->
                 </tbody>
             </table>
@@ -83,17 +72,13 @@
         </div>
 
         <!-- Total HT -->
-        <p class="total ">Montant Total HT: 190.00 €</p>
+       <div class="tot">
 
-        <!-- Montant de la TVA -->
-        <p>TVA (20%): 38.00 €</p>
-
-        <!-- Total TTC -->
-        <p class="total">Montant Total TTC: 228.00 €</p>
+       </div>
 
         <!-- Buttons for printing and validating the command -->
         <div class="d-flex justify-content-between mt-4">
-            <button class="btn btn-primary" id="print-button" onclick="window.print()">Imprimer le devis</button>
+            <button  class="btn btn-primary" id="print-button" onclick="printt()">Imprimer le devis</button>
             <button class="btn btn-success" id="valider-button" onclick="validerCommande()">Valider la commande</button>
         </div>
     </div>
@@ -101,7 +86,20 @@
     <script>
         function validerCommande() {
             alert("Commande validée avec succès.");
+            localStorage.removeItem('shoppingCart');
+            window.location.href = "menu.html";
+
+
             // Add code here to clear the shopping cart or perform other necessary actions.
+        }
+        function printt() {
+            let print = document.getElementById("print-button");
+            let valider = document.getElementById("valider-button");
+            print.style.display = 'none';
+            valider.style.display = 'none';
+            window.print()
+            print.style.display = 'block';
+            valider.style.display = 'block';
         }
     </script>
 
@@ -109,6 +107,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="js/Devs.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@2.9.3/dist/umd/popper.min.js"></script>
+
 </body>
 
 </html>
