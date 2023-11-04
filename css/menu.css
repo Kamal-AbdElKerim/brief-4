@@ -65,6 +65,8 @@
     background-color: #453E3B;
     height: 100vh;
     transition: 0.5s;
+    overflow: scroll;
+   
 }
 .active .panier{
     left: calc(100% - 500px);
@@ -87,7 +89,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-
+                                        
 }
 .panier .checkOut div{
     background-color: #E8BC0E;
@@ -103,6 +105,42 @@
     background-color: #1C1F25;
     color: #fff;
 }
+.listCard img{
+    width: 90px;
+    height: 90px;
+}
+
+ @media screen and (max-width: 771px) {
+    .listCard img{
+        width: 60px !important;
+        height: 60px;
+        margin-left: -50px;
+    }
+    .name{
+        margin-left: -22px;
+    }
+    .price{
+        margin-left: -22px;
+    }
+    .active .panier{
+        left: calc(100% - 300px);
+    }
+    .panier{
+        position: fixed;
+        top:0;
+        left: 100%;
+        width: 300px;
+        background-color: #453E3B;
+        height: 100vh;
+        transition: 0.5s;
+        overflow: scroll;
+        z-index: 2;
+       
+    }
+ 
+    
+} 
+
 .listCard li{
     display: grid;
     grid-template-columns: 100px repeat(3, 1fr);

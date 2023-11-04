@@ -46,9 +46,9 @@ function reloadCard() {
             newDiv.className = 'mt-4';
 
             newDiv.innerHTML = `
-                <div><img style="border-radius: 15px; width: 90px; height: 90px; " src="${value.img}"/></div>
-                <div>${value.name}</div>
-                <div>$${value.price.toFixed(2)}</div>
+                <div><img style="border-radius: 15px;  " src="${value.img}"/></div>
+                <div class="name">${value.name}</div>
+                <div class="price">$${value.price.toFixed(2)}</div>
                 <div>
                     <button onclick="changeQuantity(${value.id}, ${value.quantity - 1})">-</button>
                     <div class="count">${value.quantity}</div>
