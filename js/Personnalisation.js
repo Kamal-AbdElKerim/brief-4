@@ -106,7 +106,7 @@ window.addEventListener('load', () => {
 
 
 let listCards  = [];
-let listCard = document.querySelector(".listCard") ; 
+let listCard = document.querySelector(".body") ; 
 let total = document.querySelector(".total") ; 
 let addOption = document.querySelector(".addOption") ; 
 
@@ -130,70 +130,62 @@ function reloadCard() {
          
               count = count + value.quantity;
   
-              let newDiv = document.createElement('div');
-              newDiv.className = ' karim main align-items-center';
+              let newDiv = document.createElement('tr');
   
               newDiv.innerHTML = `
-              <div class="row align-items-center">
-              <div class="col-2"><img style="border-radius: 15px; width: 100px; height: 100px; " class="img-fluid" src="${value.img}"></div>
-              <div class="col">
-                  <div class="row text-muted">${value.name}</div>
-                
-               
-              </div>
-              <div class="col  ">
-                  <button  onclick="changeQuantity(${value.id}, ${value.quantity - 1})">-</button>
-                  <div class=" count">${value.quantity}</div>
-                  <button  onclick="changeQuantity(${value.id}, ${value.quantity + 1})">+</button>						</div>
-              <div class="col">&dollar; ${value.price.toFixed(2)} </div>
-
-              </div>
-            <div class="per">
-              <div class="row mt-3">
-              <select style="width: 200px; height: 41px;"  class=" form-select" id="mySelect-${value.id}" onchange="onchangee(${value.id})">
-              <option disabled selected>choss..</option>
-              <option value="Sweet Chili Sauce">Sweet Chili Sauce</option>
-              <option value="Tabasco Sauce">Tabasco Sauce</option>
-              <option value="Tabasco Sauce">Tabasco Sauce</option>
-              
-              </select> 
-
-              <button style="width: 200px; height: 41px;"   class="btn btn-primary" onclick="Rmoveit(${value.id})" type="button"  >
-             Rmove
-            </button>
-              </div>
-              <div class="col-6">
-             
-                ${value.myArrayProperty} 
-              
-             
-              
-              
-              </div>
-
-              </div>
+          
+                      <td data-th="Product">
+                          <div class="row">
+                              <div class="col-md-3 text-left">
+                                  <img src="${value.img}" alt="" style="border-radius: 15px; width: 100px; height: 100px; " class="img-fluid d-none d-md-block rounded mb-2 shadow ">
+                              </div>
+                              <div class="col-md-7 text-left mt-sm-2">
+                                  <h4>${value.name}</h4>
+                                 
+                              </div>
+                          </div>
+                      </td>
+                      <td data-th="Price">
+                      <div class="Property">
+                      <h6>${value.myArrayProperty}</h6>
+                   </div>
+                      </td>
+                      <td data-th="Price">&dollar;${value.price.toFixed(2)}</td>
+                      <td data-th="Quantity">
+                          <div class="d-flex button">
+                            <button onclick="changeQuantity(${value.id}, ${value.quantity - 1})" class="btn btn-danger">-</button>
+                            <div   class="count btn btn-light">${value.quantity}</div>
+                            <button onclick="changeQuantity(${value.id}, ${value.quantity + 1})" class="btn btn-primary" >+</button>
+                        </div>
+                      </td>
+                      <td data-th="Quantity">
+                      <select  class=" form-select" id="mySelect-${value.id}" onchange="onchangee(${value.id})">
+                      <option disabled selected>choss..</option>
+                      <option value="Sweet Chili Sauce">Sweet Chili Sauce</option>
+                      <option value="Tabasco Sauce">Tabasco Sauce</option>
+                      <option value="Tabasco Sauce">Tabasco Sauce</option>
+                      
+                      </select> 
+                      <button style="width: 200px; height: 41px;"   class="btn btn-primary" onclick="Rmoveit(${value.id})" type="button"  >
+                      Rmove
+                     </button>
+                      </td>
+                   
+          
+      
             
                   `;
               listCard.appendChild(newDiv);
 
               addOption.innerHTML = `
           
-
-              <div><h5><b>Summary</b></h5></div>
-              <hr>
+              <h4>Subtotal:</h4>
+              <h1>&dollar; ${totalPrice.toFixed(2)}</h1>
+              <div class="col-sm-6 order-md-2 text-end">
+                <a type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" href="catalog.html" class="btn btn-primary mb-4 btn-lg pl-5 pr-5">Checkout</a>
+            </div>
+            
           
-              <form>
-
-                  <p>GIVE CODE</p>
-                  <input id="code" placeholder="Enter your code">
-              </form>
-              <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                  <div class="col">TOTAL PRICE</div>
-                  <div class="col text-right">&dollar; ${totalPrice.toFixed(2)}</div>
-              </div>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                  Launch demo modal
-                </button>
                   <!-- Modal -->
                   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
@@ -207,7 +199,7 @@ function reloadCard() {
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <a class="btn btn-primary" href="h.html">Save changes</a>
+                            <a class="btn btn-primary" href="Devis.html">Save changes</a>
                           </div>
                         </div>
                       </div>

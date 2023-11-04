@@ -175,8 +175,7 @@ function reloadCard() {
     
             }
         });
-        //  total.innerText = totalPrice;
-        //  total.innerHTML = ` <div> <a class="text-dark" href="devis.html">Order(<span class="text-danger">$${totalPrice.toFixed(2)}</span>)</a></div>`;
+       
     
      
 

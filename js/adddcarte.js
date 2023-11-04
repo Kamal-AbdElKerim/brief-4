@@ -59,7 +59,7 @@ function reloadCard() {
         }
     });
     // total.innerText = totalPrice.toLocaleString();
-    total.innerHTML = ` <div> <a class="text-dark" href="devis.html">Order(<span class="text-danger">$${totalPrice.toFixed(2)}</span>)</a></div>`;
+    total.innerHTML = ` <div> <a class="text-dark" href="Personnalisation.html">Order(<span class="text-danger">$${totalPrice.toFixed(2)}</span>)</a></div>`;
 
     quantity.innerText = count;
 }
