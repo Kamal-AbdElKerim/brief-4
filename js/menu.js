@@ -141,7 +141,7 @@ function renderMenu() {
                 <h5 class="card-title mt-3">${item.name}</h5>
                 <p class="card-text text-danger">${item.category}</p>
                 <p class="card-text text-primary">$${item.price}</p>
-                <a  href="#mySection1" onclick="addToCard(${item.id})" class="btn btn-primary">add panier</a>
+                <button class="btn btn-primary" onclick="addToCard(${item.id})">add panier</button>
               
                 </div>
                 
