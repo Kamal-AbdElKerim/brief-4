@@ -182,7 +182,7 @@ function reloadCard() {
               <h4>Subtotal:</h4>
               <h1>&dollar; ${totalPrice.toFixed(2)}</h1>
               <div class="col-sm-6 order-md-2 text-end">
-                <a type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" href="catalog.html" class="btn btn-primary mb-4 btn-lg pl-5 pr-5">Checkout</a>
+                <a type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" href="#" class="btn btn-primary mb-4 btn-lg pl-5 pr-5">Checkout</a>
             </div>
             
           
@@ -191,15 +191,15 @@ function reloadCard() {
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmer l'achat</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
-                            ...
+                            <h6 class="text-start">Voulez-vous terminer la commande?</h6>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <a class="btn btn-primary" href="Devis.html">Save changes</a>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+                            <a class="btn btn-primary" href="devis.html">Oui</a>
                           </div>
                         </div>
                       </div>
