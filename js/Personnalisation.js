@@ -109,6 +109,7 @@ let listCards  = [];
 let listCard = document.querySelector(".body") ; 
 let total = document.querySelector(".total") ; 
 let addOption = document.querySelector(".addOption") ; 
+let table = document.querySelector(".table") ; 
 
 
 
@@ -124,7 +125,8 @@ function reloadCard() {
       listCards.forEach((value) => {
           if (value !== null) {
          
-          
+               table.classList.remove('d-none');
+            
               totalPrice = totalPrice + value.price;
 
          
