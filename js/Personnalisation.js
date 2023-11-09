@@ -109,6 +109,7 @@ let listCards  = [];
 let listCard = document.querySelector(".body") ; 
 let total = document.querySelector(".total") ; 
 let addOption = document.querySelector(".addOption") ; 
+
 let table = document.querySelector(".table") ; 
 
 
@@ -119,14 +120,15 @@ function reloadCard() {
 
 
       listCard.innerHTML = '';
+
+     
       let count = 0;
       let totalPrice = 0;
   
       listCards.forEach((value) => {
           if (value !== null) {
          
-               table.classList.remove('d-none');
-            
+            table.classList.remove('d-none');
               totalPrice = totalPrice + value.price;
 
          
@@ -210,13 +212,14 @@ function reloadCard() {
               
               `
           }
-          
       });
 
      
    
 
 }
+
+
 
 function changeQuantity(id, quantit) {
   if (quantit === 0) {
